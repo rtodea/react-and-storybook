@@ -14,6 +14,8 @@ import {
   waitForElementToBeRemoved
 } from '@storybook/testing-library';
 
+import expect from '@storybook/expect';
+
 export default {
   component: InboxScreen,
   title: 'InboxScreen',
@@ -44,6 +46,11 @@ Default.play = async ({canvasElement}) => {
   await waitFor(async () => {
     // Simulates pinning the first task
     await fireEvent.click(canvas.getByLabelText('pinTask-1'));
+
+    // Add expect statements to verify the state of the component
+    const element = await canvas.findByLabelText('pinTask-1');
+    expect(element.parentElement.classList).toContain('TASK_PINNED');
+
     // Simulates pinning the third task
     await fireEvent.click(canvas.getByLabelText('pinTask-3'));
   });

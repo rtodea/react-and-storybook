@@ -9,6 +9,7 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-create-react-app",
     "@storybook/addon-a11y",
+    "@storybook/expect"
   ],
   "framework": "@storybook/react",
   "core": {
